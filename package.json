@@ -1,0 +1,73 @@
+{
+  "name": "rect-countries",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kasapvictor/react-countries",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "predeploy": "tsc && vite build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@fontsource/nunito-sans": "^4.5.10",
+    "@reduxjs/toolkit": "^1.9.0",
+    "axios": "^0.27.2",
+    "husky": "^8.0.1",
+    "immer": "^9.0.15",
+    "leaflet": "^1.9.3",
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-leaflet": "^4.1.0",
+    "react-loaders": "^3.0.1",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.3",
+    "react-select": "^5.6.1",
+    "react-toastify": "^9.0.8",
+    "react-tracked": "^1.7.10",
+    "use-immer": "^0.7.0"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.10.2",
+    "@emotion/css": "^11.10.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@types/node": "^18.7.18",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.2",
+    "@vitejs/plugin-react": "^2.1.0",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.1",
+    "gh-pages": "^4.0.0",
+    "postcss": "^8.4.5",
+    "postcss-preset-env": "^7.8.1",
+    "prettier": "^2.7.1",
+    "prop-types": "^15.8.1",
+    "sass": "^1.54.8",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "last 4 versions",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

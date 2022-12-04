@@ -1,0 +1,142 @@
+@import 'normalize.css';
+
+@import '@fontsource/nunito-sans/300.css';
+@import '@fontsource/nunito-sans/600.css';
+@import '@fontsource/nunito-sans/800.css';
+
+@import 'leaflet/dist/leaflet.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+:root {
+  --color1: hsl(200, 15%, 8%);
+  --color2: hsl(0, 0%, 100%);
+  --color3: hsl(0, 0%, 98%);
+  --color4: hsl(209deg 100% 55%);
+  --color5: hsl(207, 100%, 63%);
+  --color6: rgba(149, 157, 165, 1);
+  --color7: rgba(149, 157, 165, 0.9);
+  --color8: rgba(149, 157, 165, 0.8);
+  --color9: rgba(149, 157, 165, 0.7);
+  --color10: rgba(149, 157, 165, 0.6);
+  --color11: rgba(149, 157, 165, 0.5);
+  --color12: rgba(149, 157, 165, 0.4);
+  --color13: rgba(149, 157, 165, 0.3);
+  --color14: rgba(149, 157, 165, 0.2);
+  --color15: rgba(149, 157, 165, 0.1);
+  --color16: hsl(207, 26%, 17%);
+  --color18: hsl(209, 23%, 22%);
+  --color19: #faad14;
+  --color20: #faba38;
+  --color21: #ffe58f;
+  --color22: #fdd53b;
+  --color23: #ff4d4f;
+  --color24: #ff5b5d;
+  --color25: #ffccc7;
+  --color26: #fa796c;
+  --color27: #e8e8e8;
+  --color28: #eeeeee;
+  --color29: #dddddd;
+  --color30: #d0d0d0;
+  --color31: hsl(207, 26%, 25%);
+  --color32: hsl(207, 26%, 15%);
+  --color33: rgba(245, 245, 245, 0.2);
+  --color34: hsl(207, 26%, 35%);
+  --color35: hsl(207, 26%, 30%);
+}
+
+body[data-theme='light'] {
+  --color-theme1: var(--color1);
+  --color-theme2: var(--color3);
+  --color-theme3: var(--color2);
+  --color-theme4: var(--color33);
+  --color-theme5: var(--color16);
+  --color-theme6: var(--color18);
+  --color-theme7: var(--color27);
+  --color-theme8: var(--color30);
+  --color-theme9: var(--color1);
+  --color-theme10: var(--color3);
+  --color-theme11: var(--color4);
+  --color-theme12: var(--color2);
+  --color-theme13: var(--color5);
+  --color-theme14: var(--color3);
+
+  --shadow1: var(--color14) 0px 8px 24px;
+  --shadow2: var(--color14) 0px -8px 24px;
+  --shadow3: var(--color14) 0px 8px 48px;
+  --shadow4: var(--color14) 0px 4px 12px;
+}
+
+body[data-theme='dark'] {
+  --color-theme1: var(--color2);
+  --color-theme2: var(--color16);
+  --color-theme3: var(--color18);
+  --color-theme4: var(--color14);
+  --color-theme5: var(--color15);
+  --color-theme6: var(--color16);
+  --color-theme7: var(--color34);
+  --color-theme8: var(--color35);
+  --color-theme9: var(--color3);
+  --color-theme10: var(--color3);
+  --color-theme11: var(--color4);
+  --color-theme12: var(--color2);
+  --color-theme13: var(--color5);
+  --color-theme14: var(--color35);
+
+  --shadow1: var(--color33) 0 0 8px;
+  --shadow2: var(--color33) 0 -2px 8px;
+  --shadow3: var(--color33) 0 0 24px;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: var(--color-theme1);
+  font-weight: 300;
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-theme3);
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}

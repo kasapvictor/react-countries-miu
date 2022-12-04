@@ -1,0 +1,142 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+//    "import/resolver": {
+//      "typescript": {}
+//    },
+    "boundaries/elements": [
+      { "type": "app", "pattern": "app/*" },
+      { "type": "processes", "pattern": "processes/*" },
+      { "type": "pages", "pattern": "pages/*" },
+      { "type": "widgets", "pattern": "widgets/*" },
+      { "type": "features", "pattern": "features/*" },
+      { "type": "entities", "pattern": "entities/*" },
+      { "type": "shared", "pattern": "shared/*" }
+    ]
+  },
+  "ignorePatterns": ["**/*.css", "**/*.scss", "**/*.svg", "**/*.md", "**/*.json"],
+  "extends": [
+    "plugin:react/recommended",
+    "standard",
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "no-console": "error",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "@app",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@process",
+            "group": "sibling"
+          },
+          {
+            "pattern": "@pages",
+            "group": "sibling"
+          },
+          {
+            "pattern": "@widgets",
+            "group": "sibling"
+          },
+          {
+            "pattern": "@features",
+            "group": "sibling"
+          },
+          {
+            "pattern": "@entities",
+            "group": "sibling"
+          },
+          {
+            "pattern": "@shared",
+            "group": "sibling"
+          },
+          {
+            "pattern": "@templates",
+            "group": "sibling"
+          },
+          {
+            "pattern": "./**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+
+        "groups": [
+          "external",
+          "builtin",
+          "sibling",
+          "parent",
+          "internal",
+          "index"
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ]
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      {
+        "imports": "only-multiline",
+        "arrays": "only-multiline",
+        "objects": "only-multiline",
+        "functions": "only-multiline"
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "varsIgnorePattern": "React"
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 140,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreComments": true,
+        "ignorePattern": "d=\"([\\s\\S]*?)\"" // svg d=...
+      }
+    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}
