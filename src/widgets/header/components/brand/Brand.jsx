@@ -1,13 +1,14 @@
-import { Text } from '@shared';
+import { Typography, Link as LinkStyled } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-import { BrandStyled } from './styled';
+import { COLOR } from '@shared';
 
 export const Brand = () => {
   return (
-    <BrandStyled to="/">
-      <Text tag="p" variant="bold" size="xlarge">
+    <LinkStyled component={Link} to="/" sx={{ textDecoration: 'none', color: COLOR.text.default }}>
+      <Typography fontWeight="bold" fontSize="larger" fontFamily="inherit">
         React Countries
-      </Text>
-    </BrandStyled>
+      </Typography>
+    </LinkStyled>
   );
 };

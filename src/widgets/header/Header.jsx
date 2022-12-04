@@ -1,18 +1,23 @@
+import { Grid, Box, Container } from '@mui/material';
+
 import { ThemeSwitcher } from '@features';
-import { Container } from '@shared';
+import { SHADOW, SPACE } from '@shared';
 
 import { Brand } from './components';
-import { HeaderInner, HeaderStyled } from './styled';
 
 export const Header = () => {
   return (
-    <HeaderStyled>
+    <Box
+      sx={{
+        padding: `${SPACE.gutter} 0`,
+        boxShadow: SHADOW.default,
+      }}>
       <Container>
-        <HeaderInner>
+        <Grid container justifyContent="space-between" alignItems="center">
           <Brand />
           <ThemeSwitcher />
-        </HeaderInner>
+        </Grid>
       </Container>
-    </HeaderStyled>
+    </Box>
   );
 };

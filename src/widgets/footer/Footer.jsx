@@ -1,18 +1,20 @@
-import { Container, Link, Text } from '@shared';
+import { Grid, Typography, Box, Container, Link } from '@mui/material';
 
-import { FooterStyled, FooterInner } from './styled';
+import { COLOR, SHADOW, SPACE } from '@shared';
 
 export const Footer = () => {
   return (
-    <FooterStyled>
+    <Box sx={{ boxShadow: SHADOW.footer }}>
       <Container>
-        <FooterInner>
-          <Text tag="span">Created by Victor Kasap &copy; {new Date().getFullYear()}</Text>
-          <Link target="_blank" href="https://github.com/kasapvictor">
+        <Grid container justifyContent="start" alignItems="center" padding={`${SPACE.gutter} 0`} gap={SPACE.xsmall}>
+          <Typography fontWeight={100} fontSize="small" lineHeight={2} color={COLOR.color1} fontFamily="inherit">
+            Created by Victor Kasap &copy; {new Date().getFullYear()}
+          </Typography>
+          <Link target="_blank" href="https://github.com/kasapvictor" underline="none">
             GitHub
           </Link>
-        </FooterInner>
+        </Grid>
       </Container>
-    </FooterStyled>
+    </Box>
   );
 };
