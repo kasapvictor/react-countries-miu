@@ -1,12 +1,10 @@
 import { Typography, Link as LinkStyled } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import { COLOR } from '@shared';
-
 export const Brand = () => {
   return (
-    <LinkStyled component={Link} to="/" sx={{ textDecoration: 'none', color: COLOR.text.default }}>
-      <Typography fontWeight="bold" fontSize="larger" fontFamily="inherit">
+    <LinkStyled to="/" component={Link} underline="none" sx={{ flexGrow: 1 }}>
+      <Typography component="div" variant="h5" fontWeight={900} color="white">
         React Countries
       </Typography>
     </LinkStyled>

@@ -80,6 +80,7 @@ pages/
  - [Emotion](https://emotion.sh)
  - [React Select](https://react-select.com/home)
  - [React Icons](https://react-icons.github.io/react-icons)
+ - [MUI Icons](https://mui.com/material-ui/material-icons)
  - [Countries API](https://restcountries.com)
  - [Open Street Map](https://react-leaflet.js.org/docs/start-installation)
  - [Lazy (React)](https://reactjs.org/docs/code-splitting.html)
