@@ -1,13 +1,13 @@
+import { ArrowBack } from '@mui/icons-material';
+import { Box, Button, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { countryModel, CountryDetails } from '@entities';
-import { Button, Container, STATUS, Text } from '@shared';
+import { SPACE, STATUS } from '@shared';
 
-import { DetailsContent, DetailsTop } from './styled';
-
-export const Details = () => {
+const useDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { statusFetch, errorFetch } = useSelector(countryModel.selectFetchStatus);
@@ -22,20 +22,26 @@ export const Details = () => {
     }
   }, []);
 
+  return { statusFetch, errorFetch, handleClick };
+};
+
+export const Details = () => {
+  const { statusFetch, errorFetch, handleClick } = useDetails();
+
   return (
-    <Container>
-      <DetailsTop>
-        <Button variant="light" onClick={handleClick}>
+    <Box>
+      <Box>
+        <Button variant="contained" onClick={handleClick} startIcon={<ArrowBack />}>
           Back
         </Button>
-      </DetailsTop>
-      <DetailsContent>
-        {statusFetch === STATUS.LOADING_STATUS && <Text tag="code">Loading Details ...</Text>}
+      </Box>
+      <Box sx={{ pt: SPACE.gutter }}>
+        {statusFetch === STATUS.LOADING_STATUS && <Typography variant="code">Loading Details ...</Typography>}
 
-        {statusFetch === STATUS.FAILED_STATUS && <Text tag="code">{errorFetch}</Text>}
+        {statusFetch === STATUS.FAILED_STATUS && <Typography variant="code">{errorFetch}</Typography>}
 
         {statusFetch === STATUS.SUCCESS_STATUS && <CountryDetails />}
-      </DetailsContent>
-    </Container>
+      </Box>
+    </Box>
   );
 };

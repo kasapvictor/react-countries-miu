@@ -48,6 +48,7 @@ export const Search = () => {
         variant="outlined"
         onChange={handleChange}
         placeholder="australia"
+        autoComplete="off"
       />
       {isPending && (
         <Box sx={boxSpinnerSx}>
