@@ -1,35 +1,50 @@
+import { Box, Link, Grid, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link as LinkItem } from 'react-router-dom';
 
 import { CountryCard, countryModel } from '@entities';
-import { Container, STATUS, Text } from '@shared';
+import { COLOR, RADII, SHADOW, STATUS } from '@shared';
 import { CountryFilter } from '@widgets';
 
-import { LinkStyled, ListItem, ListStyled } from './styled';
+const listItemSx = {
+  display: 'block',
+  height: '100%',
+  textDecoration: 'none',
+  color: COLOR.color1,
+  border: '1px solid',
+  borderColor: COLOR.color14,
+  borderRadius: RADII.xsmall,
+  boxShadow: SHADOW.card,
+  transition: 'box-shadow .2s ease-in-out',
+  overflow: 'hidden',
 
+  '&:hover': {
+    boxShadow: SHADOW.hover,
+  },
+};
 const ListItems = () => {
   const filteredIds = useSelector(countryModel.selectFilteredIds);
 
   if (!filteredIds.length) {
     return (
-      <Text tag="code" size="medium">
+      <Typography component="code" variant="body1" fontFamily="monospace">
         Countries not found
-      </Text>
+      </Typography>
     );
   }
 
   return filteredIds.map((countryId) => (
-    <ListItem key={countryId}>
-      <LinkStyled to={`/${countryId}`}>
+    <Grid item component="li" key={countryId} xs={12} sm={6} md={4} lg={3}>
+      <Link component={LinkItem} to={`/${countryId}`} sx={listItemSx}>
         <CountryCard countryId={countryId} />
-      </LinkStyled>
-    </ListItem>
+      </Link>
+    </Grid>
   ));
 };
 
 export const List = () => {
   const dispatch = useDispatch();
-
   const { statusFetch, errorFetch } = useSelector(countryModel.selectFetchStatus);
 
   useEffect(() => {
@@ -39,19 +54,27 @@ export const List = () => {
   }, []);
 
   return (
-    <Container>
-      {statusFetch === STATUS.LOADING_STATUS && <Text tag="code">Loading ...</Text>}
+    <Box>
+      {statusFetch === STATUS.LOADING_STATUS && (
+        <Typography component="code" variant="body1" fontFamily="monospace">
+          Loading ...
+        </Typography>
+      )}
 
-      {statusFetch === STATUS.FAILED_STATUS && <Text tag="code">{errorFetch}</Text>}
+      {statusFetch === STATUS.FAILED_STATUS && (
+        <Typography component="code" variant="body1" fontFamily="monospace">
+          {errorFetch}
+        </Typography>
+      )}
 
       {statusFetch === STATUS.SUCCESS_STATUS && (
-        <>
+        <Box>
           <CountryFilter />
-          <ListStyled>
+          <Grid component="ul" container columnSpacing={{ sm: 2, md: 3 }} rowSpacing={{ xs: 2, sm: 2, md: 3 }}>
             <ListItems />
-          </ListStyled>
-        </>
+          </Grid>
+        </Box>
       )}
-    </Container>
+    </Box>
   );
 };

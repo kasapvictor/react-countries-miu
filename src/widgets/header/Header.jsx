@@ -6,9 +6,9 @@ import { Brand } from './components';
 
 export const Header = () => {
   return (
-    <AppBar component="header" position="static" color="primary">
+    <AppBar component="header" position="static">
       <Container>
-        <Toolbar>
+        <Toolbar disableGutters={true}>
           <Brand />
           <ThemeSwitcher />
         </Toolbar>

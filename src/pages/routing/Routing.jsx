@@ -1,8 +1,6 @@
+import { Typography } from '@mui/material';
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-
-// import { CountryList, CountryDetails } from '../contents';
-import { Container, Text } from '@shared';
 
 import { BaseTemplate } from '../templates';
 
@@ -20,9 +18,9 @@ export const Routing = () => {
             element={
               <Suspense
                 fallback={
-                  <Container>
-                    <Text tag="code">Loading List ...</Text>
-                  </Container>
+                  <Typography component="code" variant="body1" fontFamily="monospace">
+                    Loading List ...
+                  </Typography>
                 }>
                 <CountryList />
               </Suspense>
@@ -33,9 +31,9 @@ export const Routing = () => {
             element={
               <Suspense
                 fallback={
-                  <Container>
-                    <Text tag="code">Loading Details ...</Text>
-                  </Container>
+                  <Typography component="code" variant="body1" fontFamily="monospace">
+                    Loading Details ...
+                  </Typography>
                 }>
                 <CountryDetails />
               </Suspense>

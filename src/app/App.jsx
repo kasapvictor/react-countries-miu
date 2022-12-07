@@ -12,6 +12,7 @@ const theme = createTheme({
   mode: 'light', // dark
   typography: {
     fontFamily: ['Nunito Sans', 'BlinkMacSystemFont', 'Roboto', '-apple-system', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(','),
+    fontFamilyCode: 'Menlo,Consolas,"Droid Sans Mono",monospace',
   },
   // palette: {
   //   primary: {

@@ -1,13 +1,26 @@
+import { Search as IconSearch } from '@mui/icons-material';
+import { Box, TextField } from '@mui/material';
 import { useTransition } from 'react';
-import { IoSearch } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { countryModel } from '@entities';
-import { Spinner } from '@shared';
+import { SPACE, Spinner } from '@shared';
 
-import { SearchStyled, SearchInner, SearchInput, SearchIcon, SearchLoading } from './styled';
+const boxSx = {
+  display: 'flex',
+  alignItems: 'center',
+  position: 'relative',
+  gap: SPACE.small,
+};
 
-export const Search = () => {
+const boxSpinnerSx = {
+  position: 'absolute',
+  right: -30,
+  top: '50%',
+  transform: 'translateY(-50%)',
+};
+
+const useSearch = () => {
   const dispatch = useDispatch();
   const [isPending, startTransition] = useTransition();
   const searchValue = useSelector(countryModel.selectSearchValue);
@@ -18,19 +31,29 @@ export const Search = () => {
     });
   };
 
+  return { isPending, searchValue, handleChange };
+};
+
+export const Search = () => {
+  const { isPending, searchValue, handleChange } = useSearch();
+
   return (
-    <SearchStyled>
-      <SearchInner>
-        {isPending && (
-          <SearchLoading>
-            <Spinner />
-          </SearchLoading>
-        )}
-        <SearchIcon>
-          <IoSearch size={16} />
-        </SearchIcon>
-        <SearchInput value={searchValue} type="search" autoComplete="off" onChange={handleChange} placeholder="Search for a country..." />
-      </SearchInner>
-    </SearchStyled>
+    <Box sx={boxSx}>
+      <IconSearch />
+      <TextField
+        id="search"
+        value={searchValue}
+        type="search"
+        label="Search for country..."
+        variant="outlined"
+        onChange={handleChange}
+        placeholder="australia"
+      />
+      {isPending && (
+        <Box sx={boxSpinnerSx}>
+          <Spinner />
+        </Box>
+      )}
+    </Box>
   );
 };
