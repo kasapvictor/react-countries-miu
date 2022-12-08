@@ -50,7 +50,7 @@ export const Card = ({ countryId }) => {
           </Typography>
         </Box>
 
-        <Typography gutterBottom variant="h6" component="div">
+        <Typography gutterBottom variant="h6" component="div" fontWeight={700}>
           {countryById.name.common}
         </Typography>
 
