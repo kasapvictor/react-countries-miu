@@ -1,50 +1,79 @@
 import { numberFormatted } from '@entities/country/lib';
 import { selectById } from '@entities/country/model';
+import { Card as CardStyled, CardMedia, CardContent, Typography, Box } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import { Text } from '@shared';
+import { COLOR, RADII, SPACE } from '@shared';
 
-import { CardStyled, CardImage, CardContent, CardTitle, CardContentRow, CardMeta } from './styled';
+const boxRowSx = {
+  display: 'flex',
+  alignItems: 'center',
+};
+
+const boxMetaSx = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: 30,
+  width: 30,
+  position: 'absolute',
+  top: '-1rem',
+  right: SPACE.gutter,
+  background: COLOR.color7,
+  borderRadius: RADII.round,
+  border: '1px solid',
+  borderColor: COLOR.color14,
+  lineHeight: 0,
+};
 
 export const Card = ({ countryId }) => {
   const countryById = useSelector((state) => selectById(state, countryId));
 
   return (
     <CardStyled>
-      <CardImage src={countryById.flags.png} />
+      <CardMedia
+        component="img"
+        height={150}
+        image={countryById.flags.png}
+        alt={countryById.name.common}
+        sx={{
+          borderBottom: '1px solid',
+          borderColor: COLOR.color14,
+        }}
+      />
 
-      <CardContent>
-        <CardMeta>
-          <Text tag="span" size="xsmall" variant="medium">
+      <CardContent sx={{ position: 'relative' }}>
+        <Box sx={boxMetaSx}>
+          <Typography variant="caption" autoCapitalize sx={{ lineHeight: 1 }}>
             {countryById.cca2}
-          </Text>
-        </CardMeta>
+          </Typography>
+        </Box>
 
-        <CardTitle>
-          <Text tag="span" variant="bold" size="large">
-            {countryById.name.common}
-          </Text>
-        </CardTitle>
+        <Typography gutterBottom variant="h6" component="div">
+          {countryById.name.common}
+        </Typography>
 
-        <CardContentRow>
-          <Text tag="span" variant="bold">
+        <Box sx={boxRowSx} gap={1}>
+          <Typography variant="body1" fontWeight={600}>
             Capital:
-          </Text>
-          <Text size="small">{countryById.capital ? countryById.capital[0] : countryById.name.common}</Text>
-        </CardContentRow>
-        <CardContentRow>
-          <Text tag="span" variant="bold">
+          </Typography>
+          <Typography variant="body2">{countryById.capital ? countryById.capital[0] : countryById.name.common}</Typography>
+        </Box>
+
+        <Box sx={boxRowSx} gap={1}>
+          <Typography variant="body1" fontWeight={600}>
             Region:
-          </Text>
-          <Text size="small">{countryById.region}</Text>
-        </CardContentRow>
-        <CardContentRow>
-          <Text tag="span" variant="bold">
+          </Typography>
+          <Typography variant="body2">{countryById.region}</Typography>
+        </Box>
+
+        <Box sx={boxRowSx} gap={1}>
+          <Typography variant="body1" fontWeight={600}>
             Population:
-          </Text>
-          <Text size="small">{numberFormatted(countryById.population)}</Text>
-        </CardContentRow>
+          </Typography>
+          <Typography variant="body2">{numberFormatted(countryById.population)}</Typography>
+        </Box>
       </CardContent>
     </CardStyled>
   );
