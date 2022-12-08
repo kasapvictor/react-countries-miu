@@ -1,8 +1,9 @@
+import { Box, Grid } from '@mui/material';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { Columns } from '@shared';
+import { SPACE } from '@shared';
 
 import { selectCountryById } from '../../model';
 
@@ -11,8 +12,6 @@ import { Flag } from './Flag';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { Map } from './Map';
-import { DetailsContainer, DetailsContent } from './styled';
-
 export const Details = () => {
   const { countryId } = useParams();
   const countryById = useSelector((state) => selectCountryById(state, countryId));
@@ -22,18 +21,20 @@ export const Details = () => {
   }, []);
 
   return (
-    <DetailsContainer>
-      <Columns columns={2} align="center">
-        <Flag countryById={countryById} />
+    <Box sx={{ paddingBottom: SPACE.gutter }}>
+      <Grid container columnSpacing={{ md: 6 }} rowSpacing={{ xs: 2 }}>
+        <Grid item xs={12} md={6}>
+          <Flag countryById={countryById} />
+        </Grid>
 
-        <DetailsContent>
+        <Grid item xs={12} md={6}>
           <Header countryById={countryById} />
           <Body countryById={countryById} />
           <Footer countryById={countryById} />
-        </DetailsContent>
-      </Columns>
+        </Grid>
+      </Grid>
 
       <Map countryById={countryById} />
-    </DetailsContainer>
+    </Box>
   );
 };
