@@ -1,1 +1,2 @@
-export { useTheme } from './useTheme';
+export * from './themeSlice';
+export * from './selectors';

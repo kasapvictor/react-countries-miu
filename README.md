@@ -81,6 +81,7 @@ pages/
  - [React Select](https://react-select.com/home)
  - [React Icons](https://react-icons.github.io/react-icons)
  - [MUI Icons](https://mui.com/material-ui/material-icons)
+ - [MUI Theme Constructor](https://bareynol.github.io/mui-theme-creator)
  - [Countries API](https://restcountries.com)
  - [Open Street Map](https://react-leaflet.js.org/docs/start-installation)
  - [Lazy (React)](https://reactjs.org/docs/code-splitting.html)
