@@ -4,13 +4,23 @@ import { useTransition } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { countryModel } from '@entities';
-import { SPACE, Spinner } from '@shared';
+import { SHADOW, SPACE, RADII, Spinner } from '@shared';
 
 const boxSx = {
   display: 'flex',
   alignItems: 'center',
   position: 'relative',
   gap: SPACE.small,
+  width: 250,
+  boxShadow: SHADOW.default,
+  borderRadius: RADII.xsmall,
+  pl: 2,
+
+  '@media (max-width: 767px)': {
+    width: '100%',
+  },
+
+  '& fieldset': { border: 'none' },
 };
 
 const boxSpinnerSx = {
@@ -41,11 +51,12 @@ export const Search = () => {
     <Box sx={boxSx}>
       <IconSearch />
       <TextField
+        fullWidth
         id="search"
         value={searchValue}
         type="search"
         label="Search for country..."
-        variant="outlined"
+        variant="outlined" // standart
         onChange={handleChange}
         placeholder="australia"
         autoComplete="off"

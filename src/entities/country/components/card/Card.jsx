@@ -45,7 +45,7 @@ export const Card = ({ countryId }) => {
 
       <CardContent sx={{ position: 'relative' }}>
         <Box sx={boxMetaSx}>
-          <Typography variant="caption" autoCapitalize sx={{ lineHeight: 1 }}>
+          <Typography variant="caption" sx={{ lineHeight: 1 }}>
             {countryById.cca2}
           </Typography>
         </Box>
