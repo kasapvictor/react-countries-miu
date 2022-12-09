@@ -1,7 +1,7 @@
 {
   "name": "rect-countries",
   "version": "0.0.0",
-  "homepage": "https://github.com/kasapvictor/react-countries",
+  "homepage": "https://github.com/kasapvictor/react-countries-mui",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
