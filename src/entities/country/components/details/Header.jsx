@@ -1,7 +1,18 @@
 import { Box, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 
-import { COLOR, SPACE } from '@shared';
+import { COLOR, FONT_SIZE, SPACE } from '@shared';
+
+const titleSx = {
+  fontSize: FONT_SIZE.h3,
+  pt: SPACE.small,
+  pb: SPACE.small,
+  fontWeight: 700,
+
+  '@media (max-width: 449px)': {
+    fontSize: FONT_SIZE.h3,
+  },
+};
 
 const coatBoxSx = {
   position: 'absolute',
@@ -15,6 +26,7 @@ const coatBoxSx = {
 
   '@media (max-width: 479px)': {
     position: 'static',
+    pb: SPACE.small,
   },
 };
 
@@ -28,7 +40,7 @@ export const Header = ({ countryById }) => {
 
   return (
     <Box sx={{ position: 'relative', paddingBottom: SPACE.xsmall }}>
-      <Typography variant="h3" component="h1" fontWeight={600} pb={2}>
+      <Typography component="h1" fontWeight={600} sx={titleSx}>
         {countryName[1]}
       </Typography>
 

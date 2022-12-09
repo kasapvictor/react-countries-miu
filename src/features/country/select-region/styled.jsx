@@ -13,6 +13,7 @@ export const selectStyles = {
     boxShadow: SHADOW.default,
     borderRadius: RADII.xsmall,
     backgroundColor: COLOR.color3,
+    transition: 'background 0s',
   }),
   indicatorsContainer: (provided) => ({
     ...provided,

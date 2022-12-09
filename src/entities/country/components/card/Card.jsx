@@ -19,6 +19,8 @@ const boxMetaSx = {
   width: 30,
   position: 'absolute',
   top: '-1rem',
+  fontWeight: 900,
+  color: COLOR.color1,
   right: SPACE.gutter,
   background: COLOR.color7,
   borderRadius: RADII.round,

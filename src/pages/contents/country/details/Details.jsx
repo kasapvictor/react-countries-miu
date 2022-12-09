@@ -5,7 +5,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { countryModel, CountryDetails } from '@entities';
-import { SPACE, STATUS } from '@shared';
+import { COLOR, FONT_SIZE, SHADOW, SPACE, STATUS } from '@shared';
+
+const buttonSx = {
+  fontSize: FONT_SIZE.xxsmall,
+  color: COLOR.color9,
+  background: COLOR.color7,
+  boxShadow: SHADOW.default,
+  padding: `${SPACE.xsmall} ${SPACE.medium}`,
+
+  '&:hover': {
+    color: COLOR.color9,
+    background: COLOR.color8,
+  },
+};
 
 const useDetails = () => {
   const dispatch = useDispatch();
@@ -31,14 +44,14 @@ export const Details = () => {
   return (
     <Box>
       <Box>
-        <Button variant="contained" onClick={handleClick} startIcon={<ArrowBack />}>
+        <Button variant="contained" onClick={handleClick} startIcon={<ArrowBack sx={{ fontSize: 30 }} />} sx={buttonSx}>
           Back
         </Button>
       </Box>
       <Box sx={{ pt: SPACE.gutter }}>
-        {statusFetch === STATUS.LOADING_STATUS && <Typography variant="code">Loading Details ...</Typography>}
+        {statusFetch === STATUS.LOADING_STATUS && <Typography fontFamily="monospace">Loading Details ...</Typography>}
 
-        {statusFetch === STATUS.FAILED_STATUS && <Typography variant="code">{errorFetch}</Typography>}
+        {statusFetch === STATUS.FAILED_STATUS && <Typography fontFamily="monospace">{errorFetch}</Typography>}
 
         {statusFetch === STATUS.SUCCESS_STATUS && <CountryDetails />}
       </Box>

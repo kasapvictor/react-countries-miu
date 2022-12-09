@@ -13,6 +13,7 @@
  * @type {{small: string, xsmall: string, large: string, xlarge: string, h1: string, xxlarge: string, h2: string, medium: string, h3: string, h4: string, h5: string}}
  */
 export const FONT_SIZE = {
+  xxsmall: '0.75rem',
   xsmall: '0.79rem',
   small: '0.889rem',
   medium: '1rem',

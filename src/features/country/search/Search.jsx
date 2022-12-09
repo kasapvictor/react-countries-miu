@@ -4,7 +4,7 @@ import { useTransition } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { countryModel } from '@entities';
-import { SHADOW, SPACE, RADII, Spinner } from '@shared';
+import { SHADOW, SPACE, RADII, Spinner, COLOR } from '@shared';
 
 const boxSx = {
   display: 'flex',
@@ -20,7 +20,18 @@ const boxSx = {
     width: '100%',
   },
 
-  '& fieldset': { border: 'none' },
+  '& fieldset': {
+    color: COLOR.color1,
+    border: 'none',
+  },
+
+  '& label.MuiFormLabel-root': {
+    color: COLOR.color1,
+  },
+
+  '& input': {
+    color: COLOR.color1,
+  },
 };
 
 const boxSpinnerSx = {

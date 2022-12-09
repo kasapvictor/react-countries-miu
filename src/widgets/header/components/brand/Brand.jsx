@@ -1,22 +1,26 @@
-import { Typography, Link as LinkStyled, useTheme } from '@mui/material';
+import { Typography, Link as LinkStyled } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const brandSx = {
-  fontSize: '1.2rem',
-  fontWeight: 900,
+import { COLOR, FONT_SIZE, SPACE } from '@shared';
 
-  '@media (min-width: 767px)': {
-    fontSize: '1.4rem',
+const brandSx = {
+  fontSize: FONT_SIZE.xlarge,
+  fontWeight: 700,
+  textDecoration: 'none',
+  color: COLOR.text.default,
+  pr: SPACE.xsmall,
+
+  '@media (max-width: 767px)': {
+    fontSize: FONT_SIZE.large,
   },
 };
 
 export const Brand = () => {
-  const theme = useTheme();
-
   return (
     <LinkStyled to="/" component={Link} underline="none" sx={{ flexGrow: 1 }}>
-      <Typography component="h1" sx={brandSx} color={theme.palette.brand}>
-        React Countries
+      {/* <Typography component="span" sx={brandSx} style={{ fontSize: FONT_SIZE.xlarge }}> */}
+      <Typography component="span" sx={brandSx}>
+        React Countries MUI
       </Typography>
     </LinkStyled>
   );

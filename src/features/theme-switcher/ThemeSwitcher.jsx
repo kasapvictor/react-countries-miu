@@ -1,31 +1,47 @@
 import { ModeNight, WbSunny } from '@mui/icons-material';
 import { Button } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
-import { selectThemeMode, setMode } from './model';
+import { COLOR, FONT_SIZE, SHADOW, SPACE } from '@shared';
 
-export const THEME = {
+const THEME = {
   DARK: 'dark',
   LIGHT: 'light',
 };
 
+const buttonSx = {
+  fontSize: FONT_SIZE.xxsmall,
+  color: COLOR.color2,
+  background: COLOR.color1,
+  boxShadow: SHADOW.default,
+  padding: `${SPACE.xsmall} ${SPACE.medium}`,
+
+  '&:hover': {
+    color: COLOR.color12,
+    background: COLOR.color6,
+  },
+};
+
 export const useTheme = () => {
-  const dispatch = useDispatch();
-  const themeMode = useSelector(selectThemeMode);
-  const theme = themeMode ? THEME.LIGHT : THEME.DARK;
+  const [theme, setTheme] = useState(THEME.LIGHT);
+  const icon = theme === THEME.LIGHT ? <WbSunny /> : <ModeNight />;
 
   const handleTheme = () => {
-    dispatch(setMode(!themeMode));
+    setTheme(theme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT);
   };
 
-  return [themeMode ? <WbSunny /> : <ModeNight />, theme, handleTheme];
+  useEffect(() => {
+    document.body.dataset.theme = theme;
+  }, [theme]);
+
+  return [theme, handleTheme, icon];
 };
 
 export const ThemeSwitcher = () => {
-  const [icon, theme, handleTheme] = useTheme();
+  const [theme, handleTheme, icon] = useTheme();
 
   return (
-    <Button variant="contained" startIcon={icon} onClick={handleTheme} color="secondary">
+    <Button variant="contained" startIcon={icon} onClick={handleTheme} sx={buttonSx}>
       {theme}
     </Button>
   );

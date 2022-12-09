@@ -29,18 +29,22 @@ const ListItems = () => {
   if (!filteredIds.length) {
     return (
       <Typography component="code" variant="body1" fontFamily="monospace">
-        Countries not found
+        Countries not found :(
       </Typography>
     );
   }
 
-  return filteredIds.map((countryId) => (
-    <Grid item component="li" key={countryId} xs={12} sm={6} md={4} lg={3}>
-      <Link component={LinkItem} to={`/${countryId}`} sx={listItemSx}>
-        <CountryCard countryId={countryId} />
-      </Link>
+  return (
+    <Grid component="ul" container columnSpacing={{ sm: 2, md: 3 }} rowSpacing={{ xs: 2, sm: 2, md: 3 }}>
+      {filteredIds.map((countryId) => (
+        <Grid item component="li" key={countryId} xs={12} sm={6} md={4} lg={3}>
+          <Link component={LinkItem} to={`/${countryId}`} sx={listItemSx}>
+            <CountryCard countryId={countryId} />
+          </Link>
+        </Grid>
+      ))}
     </Grid>
-  ));
+  );
 };
 
 export const List = () => {
@@ -70,9 +74,7 @@ export const List = () => {
       {statusFetch === STATUS.SUCCESS_STATUS && (
         <Box>
           <CountryFilter />
-          <Grid component="ul" container columnSpacing={{ sm: 2, md: 3 }} rowSpacing={{ xs: 2, sm: 2, md: 3 }}>
-            <ListItems />
-          </Grid>
+          <ListItems />
         </Box>
       )}
     </Box>

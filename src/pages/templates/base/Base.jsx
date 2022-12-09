@@ -1,12 +1,11 @@
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { Footer } from '@widgets/footer';
 import { Outlet } from 'react-router-dom';
 
 import { SPACE } from '@shared';
 import { Header } from '@widgets';
 
-const mainSx = {
-  flex: 1,
+const containerSx = {
   pt: SPACE.large,
   pb: SPACE.large,
 
@@ -20,9 +19,11 @@ export const Base = () => {
   return (
     <>
       <Header />
-      <Container component="main" sx={mainSx}>
-        <Outlet />
-      </Container>
+      <Box component="main" sx={{ flex: 1 }}>
+        <Container sx={containerSx}>
+          <Outlet />
+        </Container>
+      </Box>
       <Footer />
     </>
   );

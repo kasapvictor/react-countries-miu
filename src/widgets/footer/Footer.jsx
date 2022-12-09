@@ -1,30 +1,28 @@
 import { Grid, Typography, Box, Container, Link } from '@mui/material';
 
-import { SHADOW, SPACE } from '@shared';
+import { COLOR, SHADOW, SPACE } from '@shared';
 
+const gridSx = {
+  justifyContent: 'start',
+  alignItems: 'center',
+  pb: SPACE.gutter,
+  pt: SPACE.gutter,
+  gap: SPACE.xsmall,
+};
 export const Footer = () => {
   return (
     <Box
       sx={{
         boxShadow: SHADOW.footer,
-        // backgroundColor: (theme) => (theme.palette.mode === 'dark' ? theme.palette.grey[200] : theme.palette.grey[800]),
+        backgroundColor: COLOR.color3,
       }}>
       <Container>
-        <Grid
-          container
-          sx={{
-            justifyContent: 'start',
-            alignItems: 'center',
-            pb: SPACE.gutter,
-            pt: SPACE.gutter,
-            gap: SPACE.xsmall,
-          }}>
+        <Grid container sx={gridSx}>
           <Typography
             variant="body2"
-            color="text.secondary"
+            color={COLOR.color1}
             sx={{
               fontWeight: 100,
-              // color: (theme) => (theme.palette.mode === 'light' ? 'inherit' : '#333'),
             }}>
             Created by Victor Kasap &copy; {new Date().getFullYear()}
           </Typography>

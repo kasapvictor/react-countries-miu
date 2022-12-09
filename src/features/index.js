@@ -1,2 +1,2 @@
 export * from './country';
-export { ThemeSwitcher, themeModel } from './theme-switcher';
+export { ThemeSwitcher } from './theme-switcher';
